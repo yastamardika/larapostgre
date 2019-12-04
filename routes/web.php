@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.admin');
 });
 
-Route::get('/admin', function () {
-    return view('admin/admin');
-})->name('admin');
+Route::get('/admin', 'AdminController@index');
+
+Route::get('/admin/categories/', 'AdminController@categories');
+Route::get('/admin/categories/tambah', 'AdminController@categoriesTambah');
+Route::get('/admin/articles/', 'AdminController@articles');
+Route::get('/admin/articles/tambah', 'AdminController@articlesTambah');
