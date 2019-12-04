@@ -12,12 +12,13 @@ class CreateArticlesTable extends Migration
      * @return void
      */
     public function up()
-    {(
+    {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('content');
-            $table->tinyIncrements('category_id');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
