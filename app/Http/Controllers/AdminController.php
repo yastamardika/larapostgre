@@ -14,7 +14,8 @@ class AdminController extends Controller
 
     public function categories()
     {
-        return view('admin.categories.lihat');
+        $kategori = DB::table('categories')->get();
+        return view('admin.categories.lihat')->with('kategori', $kategori);
     }
 
     public function categoriesTambah()
@@ -35,7 +36,8 @@ class AdminController extends Controller
 
     public function articles()
     {
-        return view('admin.articles.lihat');
+        $artikel = DB::table('categories')->get();
+        return view('admin.articles.lihat')->with('artikel', $artikel);
     }
 
     public function articlesTambah()
